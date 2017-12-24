@@ -15,10 +15,17 @@ void get_formula(char *formula_type, int left_spec, int right_spec)
     int i=0;
     char str[80];
 
+    // an example of getting and setting a fp_formula type...
+    fp_formula temp=NULL;
+
     for(i=0;i<sizeof(formula_array);i++)
     {
         if(strcmp(formula_type, formula_array[i].formula_type)==0) {
-            sprintf(str, "the sum is %d", formula_array[i].formula(left_spec, right_spec));
+
+            // just so that it is easier to see via the debugger...
+            temp = formula_array[i].formula;
+
+            sprintf(str, "the sum is %d", temp(left_spec, right_spec));
             puts(str);
 
             return;
