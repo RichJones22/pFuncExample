@@ -42,7 +42,9 @@ int main()
     get_formula("subtract", 2,2);
     get_formula("multiply", 2,2);
 
-    return 0;
+    return 1;
 }
+
+void VERSION_bob_was_here(void) {}
 
 

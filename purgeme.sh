@@ -11,13 +11,31 @@ for f in $files
 do
     if ! grep -q "^(void VERSION_).*$" $f
     then
-        echo ""
-        echo "{void VERSION_} function not found in $f"
-        echo "terminating check in..."
-        echo "please make sure the function signature begins with 'void VERSION_'"
-        echo ""
-        exit 1
+        echo $f | grep -qE '\.(c|cpp)$'
+        if [ $? -eq 0 ]
+        then
+            echo ""
+            echo "{void VERSION_} function not found in $f"
+            echo "terminating check in..."
+            echo "please make sure the function signature begins with 'void VERSION_'"
+            echo ""
+            exit 1
+        fi
     fi
 done
 
+for f in $files
+do
+    if grep -q "^(void VERSION_).*$" $f
+    then
+        echo $f | grep -qE '\.(c|cpp)$'
+        if [ $? -eq 0 ]
+        then
+#          echo ""
+#          echo "file to modify is $f"
+           sed -i.bak 's/void VERSION_.*/void VERSION_bob_was_here(void) {}/g' $f
+        fi
+    fi
+done
+#echo ""
 exit 0
