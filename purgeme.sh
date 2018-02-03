@@ -39,8 +39,14 @@ do
 
 #            $(git hash-object $f)
 
+            current_date_time="`date +%Y%m%d%H%M%S`";
 
-           sed -i.bak "s/void VERSION_.*/void VERSION_$(git hash-object "$f")(void) {}/g" $f
+
+            y=${f%.c}
+#            echo ${y##*/}
+
+#           sed -i.bak "s/void VERSION_.*/void VERSION_$(git hash-object "$f")(void) {}/g" $f
+           sed -i.bak "s/void VERSION_.*/void VERSION_$(echo "${y##*/}")_$(echo "$current_date_time")_$(echo "$RANDOM")(void) {}/g" $f
 
 #           echo $(git hash-object $f)
 
