@@ -7,6 +7,9 @@
 # - cut or remove the first three characters of the line.
 files=$(git diff --name-status | grep -v ^D | cut -c3-)
 
+echo "git pre-commit started"
+
+
 for f in $files
 do
     if ! grep -q "^(void VERSION_).*$" $f
