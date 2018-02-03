@@ -38,6 +38,7 @@ do
 
             sed -i.bak "s/void VERSION_.*/void VERSION_$(echo "${file##*/}")_$(echo "$current_date_time")_$(echo "$RANDOM")(void) {}/g" $f
             git add $f
+            rm $f.bak
         fi
     fi
 done
