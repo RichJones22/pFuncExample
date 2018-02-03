@@ -9,6 +9,8 @@ files=$(git diff --name-status | grep -v ^D | cut -c3-)
 
 echo "git pre-commit started"
 
+echo "$files"
+
 
 for f in $files
 do

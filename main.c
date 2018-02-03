@@ -42,8 +42,6 @@ int main()
     get_formula("subtract", 2,2);
     get_formula("multiply", 2,2);
 
-
-
     return 1;
 }
 
