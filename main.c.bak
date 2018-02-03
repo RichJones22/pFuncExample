@@ -45,4 +45,5 @@ int main()
     return 1;
 }
 
+void VERSION_main_03FEB2018_100607_5053(void) {}
 
