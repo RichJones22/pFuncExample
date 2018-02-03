@@ -31,14 +31,11 @@ do
         echo $f | grep -qE '\.(c|cpp)$'
         if [ $? -eq 0 ]
         then
-#          echo ""
-#          echo "file to modify is $f"
             current_date_time="`date '+%d%h%Y_%H%M%S' | tr [:lower:] [:upper:]`";
             file=${f%.c}
 
-           sed -i.bak "s/void VERSION_.*/void VERSION_$(echo "${file##*/}")_$(echo "$current_date_time")_$(echo "$RANDOM")(void) {}/g" $f
+            sed -i.bak "s/void VERSION_.*/void VERSION_$(echo "${file##*/}")_$(echo "$current_date_time")_$(echo "$RANDOM")(void) {}/g" $f
         fi
     fi
 done
-#echo ""
 exit 0
