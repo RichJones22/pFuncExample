@@ -7,12 +7,7 @@
 # - cut or remove the first three characters of the line.
 
 
-files=$(git diff --name-status | grep -v ^D | cut -c3-)
-
-echo "git pre-commit started"
-pwd
-echo "$files"
-
+files=$(git diff HEAD --name-status | grep -v ^D | cut -c3-)
 
 for f in $files
 do
@@ -24,7 +19,7 @@ do
             echo ""
             echo "{void VERSION_} function not found in $f"
             echo "terminating check in..."
-            echo "please make sure the function signature begins with 'void VERSION_'"
+            echo "please make sure this function exists in your C source file: 'void VERSION_(){}'"
             echo ""
             exit 1
         fi

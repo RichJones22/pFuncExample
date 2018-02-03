@@ -43,7 +43,8 @@ int main()
     get_formula("multiply", 2,2);
 
 
+
     return 1;
 }
 
-
+void VERSION_(){}
