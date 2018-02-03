@@ -5,6 +5,9 @@
 # - get a list of git files that have been added, deleted, or modified.
 # - only show those lines that do not begin with a 'D'.
 # - cut or remove the first three characters of the line.
+
+pwd
+
 files=$(git diff --name-status | grep -v ^D | cut -c3-)
 
 echo "git pre-commit started"
