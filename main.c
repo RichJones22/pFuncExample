@@ -42,10 +42,7 @@ int main()
     get_formula("subtract", 2,2);
     get_formula("multiply", 2,2);
 
-
-
-
     return 1;
 }
 
-void VERSION_main_03FEB2018_111631_5603(void) {}
+void VERSION_main_03FEB2018_230808_10155(void) {}
